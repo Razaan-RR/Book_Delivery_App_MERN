@@ -1,15 +1,18 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { Sun, Moon, Menu, X } from 'lucide-react'
-import logo from "../../assets/logo.png"
+import { Menu, X } from 'lucide-react'
+import logo from '../../assets/logo.png'
 
 function Navbar({ user }) {
   const [open, setOpen] = useState(false)
-  const [dark, setDark] = useState(false)
 
-  const toggleTheme = () => {
-    setDark(!dark)
-    document.documentElement.classList.toggle('dark')
+  const handleTheme = (checked) => {
+    const html = document.querySelector('html')
+    if (checked) {
+      html.setAttribute('data-theme', 'dark')
+    } else {
+      html.setAttribute('data-theme', 'light')
+    }
   }
 
   return (
@@ -53,10 +56,12 @@ function Navbar({ user }) {
               className="w-10 h-10 rounded-full border"
             />
           )}
-
-          <button onClick={toggleTheme}>
-            {dark ? <Sun size={20} /> : <Moon size={20} />}
-          </button>
+          <input
+            onChange={(e) => handleTheme(e.target.checked)}
+            type="checkbox"
+            defaultChecked
+            className="toggle"
+          />
         </div>
 
         <button className="md:hidden" onClick={() => setOpen(!open)}>
@@ -75,7 +80,6 @@ function Navbar({ user }) {
           <Link to="/dashboard" className="hover:text-blue-500">
             Dashboard
           </Link>
-
           {!user ? (
             <div className="flex flex-col gap-2">
               <Link
@@ -100,14 +104,12 @@ function Navbar({ user }) {
               <p>{user.name}</p>
             </div>
           )}
-
-          <button
-            onClick={toggleTheme}
-            className="flex items-center gap-2 pt-2"
-          >
-            {dark ? <Sun size={20} /> : <Moon size={20} />}
-            Theme
-          </button>
+          <input
+            onChange={(e) => handleTheme(e.target.checked)}
+            type="checkbox"
+            defaultChecked
+            className="toggle"
+          />{' '}
         </div>
       )}
     </nav>
