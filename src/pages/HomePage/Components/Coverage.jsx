@@ -1,11 +1,9 @@
 import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
-import { useLoaderData } from 'react-router-dom'
 import { useState } from 'react'
 
-function Coverage() {
+function Coverage({centerLocations}) {
   const position = [23.685, 90.3563]
-  const centerLocations = useLoaderData() || []
   const [search, setSearch] = useState('')
 
   const filteredLocations = centerLocations.filter(
@@ -15,7 +13,7 @@ function Coverage() {
   )
 
   return (
-    <div className="px-10 py-10 bg-[radial-gradient(circle_at_top_left,#ffe9ec,#e8f3ff,#f4fff0,#fff6e5)] backdrop-blur-xl bg-opacity-60 min-h-screen">
+    <div className="pl-40 py-10 bg-[radial-gradient(circle_at_top_left,#ffe9ec,#e8f3ff,#f4fff0,#fff6e5)] backdrop-blur-xl bg-opacity-60 min-h-screen">
       <h1 className="text-3xl font-bold text-center pb-6 text-gray-800">
         We are available in 64 districts
       </h1>
@@ -31,7 +29,7 @@ function Coverage() {
           Search
         </button>
       </div>
-      <div className="border rounded-lg w-full h-[600px] overflow-hidden shadow-lg">
+      <div className="border rounded-lg w-[1000px] h-[400px] overflow-hidden shadow-lg">
         <MapContainer
           className="h-full w-full"
           center={position}
