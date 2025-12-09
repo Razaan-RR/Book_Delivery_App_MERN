@@ -13,7 +13,7 @@ function Coverage({centerLocations}) {
   )
 
   return (
-    <div className="pl-40 py-10 bg-[radial-gradient(circle_at_top_left,#ffe9ec,#e8f3ff,#f4fff0,#fff6e5)] backdrop-blur-xl bg-opacity-60 min-h-screen">
+    <div className="p-35 py-10 bg-[radial-gradient(circle_at_top_left,#ffe9ec,#e8f3ff,#f4fff0,#fff6e5)] backdrop-blur-xl bg-opacity-60 min-h-screen">
       <h1 className="text-3xl font-bold text-center pb-6 text-gray-800">
         We are available in 64 districts
       </h1>
