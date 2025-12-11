@@ -4,6 +4,7 @@ import Home from '../pages/HomePage/Home'
 import AuthLayout from '../layouts/AuthLayout'
 import Login from '../pages/Auth/Login'
 import Register from '../pages/Auth/Register'
+import DashboardHome from "../pages/Dashboard/DashboardHome";
 
 export let router = createBrowserRouter([
   {
